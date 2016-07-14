@@ -296,7 +296,7 @@ synchronized void enqueue(AsyncCall call) {
 1. 每个 body 只能被消费一次，多次消费会抛出异常；
 2. body 必须被关闭，否则会发生资源泄漏；
 
-在 [2.2.1.2，发送和接收数据：CallServerInterceptor](#callserverinterceptor) 小节中，我们就看过了 body 相关的代码：
+在 [2.2.1.2，发送和接收数据：CallServerInterceptor](#2212发送和接收数据callserverinterceptor) 小节中，我们就看过了 body 相关的代码：
 
 ~~~ java
 if (!forWebSocket || response.code() != 101) {
@@ -312,7 +312,7 @@ if (!forWebSocket || response.code() != 101) {
 
 ### 2.4，HTTP 缓存
 
-在 [2.2.1，同步网络请求](#section-2) 小节中，我们已经看到了 `Interceptor` 的布局，在建立连接、和服务器通讯之前，就是 `CacheInterceptor`，在建立连接之前，我们检查响应是否已经被缓存、缓存是否可用，如果是则直接返回缓存的数据，否则就进行后面的流程，并在返回之前，把网络的数据写入缓存。
+在 [2.2.1，同步网络请求](#221同步网络请求) 小节中，我们已经看到了 `Interceptor` 的布局，在建立连接、和服务器通讯之前，就是 `CacheInterceptor`，在建立连接之前，我们检查响应是否已经被缓存、缓存是否可用，如果是则直接返回缓存的数据，否则就进行后面的流程，并在返回之前，把网络的数据写入缓存。
 
 这块代码比较多，但也很直观，主要涉及 HTTP 协议缓存细节的实现，而具体的缓存逻辑 OkHttp 内置封装了一个 `Cache` 类，它利用 `DiskLruCache`，用磁盘上的有限大小空间进行缓存，按照 LRU 算法进行缓存淘汰，这里也不再展开。
 
