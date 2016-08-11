@@ -53,7 +53,7 @@ Okio 有自己的流类型，那就是 `Source` 和 `Sink`，它们和 `InputStr
 
 我们看一下 `Buffer` 的类图：
 
-![buffer_class_diagram.png](/image/buffer_class_diagram.png)
+![buffer_class_diagram.png](image/buffer_class_diagram.png)
 
 这里我们就可以看到，它集 `BufferedSource` 和 `BufferedSink` 的功能于一身，为我们提供了访问数据缓冲区所需要的一切 API。
 
@@ -262,7 +262,7 @@ response = response.newBuilder()
 
 最后这里我们补充一张 Retrofit，OkHttp，Okio 进行网络 IO 的流程图：
 
-![okio_okhttp_retrofit.png](/image/okio_okhttp_retrofit.png)
+![okio_okhttp_retrofit.png](image/okio_okhttp_retrofit.png)
 
 ## 5，Gzip 压缩的实现
 
